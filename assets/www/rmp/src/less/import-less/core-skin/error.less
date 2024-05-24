@@ -1,0 +1,139 @@
+/* error UI */
+.rmp-error-ui .rmp-module,
+.rmp-error-ui .rmp-poster,
+.rmp-error-ui .rmp-mobile-central-ui,
+.rmp-error-ui .rmp-time,
+.rmp-error-ui .rmp-overlay-button,
+.rmp-error-ui .rmp-loading-spin,
+.rmp-error-ui .rmp-title-area,
+.rmp-error-ui.rmp-audio-only .rmp-control-bar,
+.rmp-error-ui.rmp-audio-only .rmp-error-text-wrapper p {
+  display: none !important;
+}
+
+/* 
+ * No playback support or
+ * error detected 
+ */
+.rmp-error {
+  position: absolute;
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  text-align: left;
+  background-color: @black;
+  background-image: radial-gradient(#06224d, #01060d);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Courier New", "Courier", monospace;
+  color: rgba(33, 150, 243, 0.8);
+  text-shadow: 0 0 1ex rgba(66, 165, 245, 1), 0 0 2px rgba(255, 255, 255, 0.8);
+}
+
+.rmp-error-overlay {
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  background-size: auto 4px;
+  z-index: 1;
+}
+
+.rmp-error-overlay::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    0deg,
+    transparent 0%,
+    rgba(13, 71, 161, 0.2) 2%,
+    rgba(13, 71, 161, 0.8) 3%,
+    rgba(13, 71, 161, 0.2) 3%,
+    transparent 100%
+  );
+  background-repeat: no-repeat;
+  animation: scan 6s linear 0s infinite;
+}
+
+@keyframes scan {
+  0% {
+    background-position: 0 -100vh;
+  }
+
+  35%,
+  100% {
+    background-position: 0 100vh;
+  }
+}
+
+.rmp-error-terminal {
+  box-sizing: inherit;
+  position: absolute;
+  height: 100%;
+  width: 1000px;
+  max-width: 100%;
+  padding: 2rem;
+  text-transform: uppercase;
+}
+
+.rmp-error-output {
+  color: rgba(33, 150, 243, 0.8);
+  text-shadow: 0 0 1ex rgba(66, 165, 245, 1), 0 0 2px rgba(255, 255, 255, 0.8);
+  font-size: 18px;
+}
+
+.rmp-error-output::before {
+  content: "> ";
+}
+
+.rmp-error-code {
+  color: white;
+}
+
+.rmp-error-ui.rmp-audio-only .rmp-error-text-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 48px;
+  line-height: 48px;
+  margin-left: 48px;
+  .transform(none);
+}
+
+.rmp-small.rmp-error-ui.rmp-audio-only .rmp-error-text-wrapper,
+.rmp-extrasmall.rmp-error-ui.rmp-audio-only .rmp-error-text-wrapper,
+.rmp-doubleextrasmall.rmp-error-ui.rmp-audio-only .rmp-error-text-wrapper {
+  top: 10px;
+  height: 24px;
+  line-height: 24px;
+  margin-left: 24px;
+}
+
+.rmp-doubleextrasmall .rmp-error p {
+  display: none;
+}
+
+.rmp-error-text-wrapper {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  .transform-translate();
+}
+
+.rmp-error-text-header {
+  font-size: 36px;
+}

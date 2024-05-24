@@ -1,0 +1,28 @@
+name: rmp_flutter_webview
+description: "A sample Flutter app to demonstrate how Radiant Media Player can be used with Flutter through webview_flutter plugin."
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.4.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+  webview_flutter: ^4.7.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/www/index.html
+    - assets/www/rmp/dist/
+    - assets/www/rmp/rmp-vast/
+    - assets/www/img/

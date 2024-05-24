@@ -1,0 +1,27 @@
+/* 
+ * spinner animation
+ */
+.rmp-loading-spin-circle {
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  border: 4px solid;
+  border-color: @button @button transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+    

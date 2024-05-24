@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <title>Radiant Media Player - API usage example</title>
+</head>
+
+<body>
+  <!-- Radiant Media Player core library -->
+  <script src="../dist/rmp-hlsjs.min.js"></script>
+  <!-- Player container -->
+  <div id="rmp">
+  </div>
+  <script>
+    // Player settings
+    const src = {
+      hls: 'https://your-hls-url.m3u8'
+    };
+    const liveSettings = {
+      // Enter your license key
+      licenseKey: 'your-license-key',
+      src: src,
+      width: 640,
+      height: 360,
+      pathToRmpFiles: '../',
+      contentMetadata: {
+        poster: [
+          'https://your-poster-url.jpg'
+        ]
+      }
+    };
+    // init player
+    const elementID = 'rmp';
+    const rmp = new RadiantMP(elementID);
+    let timeupdateCount = 0;
+    // we wire events before calling init
+    rmp.on('timeupdate', () => {
+      console.log('timeupdate');
+      timeupdateCount++;
+      if (timeupdateCount === 10) {
+        // seek to 10 seconds
+        rmp.seekTo(10000);
+      }
+    });
+    rmp.on('ended', () => {
+      console.log('ended');
+    });
+    // init after API events are wired
+    rmp.init(liveSettings);
+  </script>
+</body>
+
+</html>

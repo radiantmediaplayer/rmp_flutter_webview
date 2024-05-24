@@ -1,0 +1,92 @@
+/* default color settings */
+@black: rgba(0, 0, 0, 1);
+@shadow-1: rgba(0, 0, 0, 0.8);
+@shadow-3: rgba(0, 0, 0, 0.5);
+@shadow-4: rgba(0, 0, 0, 0.4);
+@shadow-5: rgba(0, 0, 0, 0.3);
+@shadow-6: rgba(0, 0, 0, 0.2);
+@shadow-7: rgba(0, 0, 0, 0.1);
+@shadow-0: rgba(0, 0, 0, 0);
+@white: rgba(255, 255, 255, 1);
+@white-shadow-1: rgba(255, 255, 255, 0.3);
+@grey-light: #cfcfcf;
+@grey: #333;
+
+/* chromecast button colors as per Google recommendations
+ * this is also used for UI focus on keyboard controls */
+@blue: rgba(33, 150, 243, 1);
+@blue-hover: rgba(33, 150, 243, 0.85);
+
+@button: rgba(255, 255, 255, 1);
+@accent: rgba(130, 177, 255, 1);
+@accent-light: rgba(130, 177, 255, 0.7);
+
+.rmp-volume-bar,
+.rmp-color-bg-button {
+  background: @button;
+}
+
+.rmp-ad-current-time,
+.rmp-quality-hd,
+.rmp-cue-point,
+.rmp-transcripts-current-item,
+.rmp-playlist-side-menu::-webkit-scrollbar-thumb,
+.rmp-transcripts-side-menu::-webkit-scrollbar-thumb,
+.rmp-dvr .rmp-time-elapsed-text,
+.rmp-dvr-vod .rmp-time-elapsed-text:hover {
+  background: @accent;
+}
+
+.rmp-color-button,
+.rmp-control-bar-hint,
+.rmp-time-elapsed-text,
+.rmp-duration-text,
+.rmp-hint,
+.rmp-in-module-hint,
+.rmp-quality-hd,
+.rmp-related-skip-preview-up-next,
+.rmp-transcripts-current-item:hover,
+.rmp-volume-indicator,
+.rmp-volume-hint,
+.rmp-related-skip-preview-title {
+  color: @button;
+}
+
+.rmp-color-accent,
+.rmp-overlay-level:hover:not(.rmp-overlay-level-active),
+.rmp-i:hover,
+.rmp-module:hover .rmp-i,
+.rmp-ad-info-message,
+.rmp-sup,
+.rmp-transcripts-item:hover:not(.rmp-transcripts-current-item),
+.rmp-live .rmp-time-elapsed-text::before,
+.rmp-pip-on .rmp-i-pip,
+.rmp-theater-on .rmp-i-theater,
+.rmp-related-item:hover .rmp-related-title {
+  color: @accent;
+}
+
+.rmp-related-item:hover {
+  box-shadow: 0 0 0 1px @accent;
+}
+
+.rmp-module-fcc-settings {
+  border-color: @button;
+}
+
+.rmp-button.rmp-overlay-level.rmp-abr-active {
+  border-color: @accent;
+}
+
+.rmp-module-fcc-settings:hover {
+  border-color: @accent;
+  color: @accent;
+}
+
+.rmp-dvr-vod .rmp-time-elapsed-text {
+  background: @accent-light;
+}
+
+.rmp-loading-spin-circle {
+  border-color: @button @button transparent;
+}

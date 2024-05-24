@@ -1,0 +1,229 @@
+/* TV skin specific CSS
+ * Note that TV skin is based on s2 skin
+ */
+
+.rmp-tv .rmp-control-bar {
+  height: 96px !important;
+}
+
+.rmp-tv .rmp-seek-bar {
+  top: -34px !important;
+  height: 12px !important;
+  left: 96px !important;
+  width: calc(100% - 192px) !important;
+}
+
+.rmp-medium.rmp-tv .rmp-seek-bar,
+.rmp-small.rmp-tv .rmp-seek-bar,
+.rmp-extrasmall.rmp-tv .rmp-seek-bar,
+.rmp-doubleextrasmall.rmp-tv .rmp-seek-bar {
+  left: 48px !important;
+  width: calc(100% - 96px) !important;
+}
+
+.rmp-tv .rmp-time {
+  left: 96px !important;
+  height: 48px !important;
+  line-height: 48px !important;
+  font-size: 32px;
+  top: 14px !important;
+  width: auto !important;
+}
+
+.rmp-medium.rmp-tv .rmp-time {
+  left: 48px !important;
+  font-size: 16px;
+}
+
+.rmp-small.rmp-tv .rmp-time,
+.rmp-extrasmall.rmp-tv .rmp-time,
+.rmp-doubleextrasmall.rmp-tv .rmp-time {
+  display: none;
+}
+
+.rmp-tv .rmp-play-pause {
+  left: 50% !important;
+  margin-left: -24px !important;
+  width: 70px;
+  height: 70px;
+}
+
+.rmp-tv .rmp-control-bar .rmp-i {
+  font-size: 3.72em;
+}
+
+.rmp-tv.rmp-dvr.rmp-dvr-vod .rmp-duration-text {
+  font-size: 32px;
+}
+
+.rmp-tv.rmp-dvr.rmp-dvr-live .rmp-i-dvr {
+  font-size: 1.25em;
+}
+
+.rmp-tv .rmp-control-bar .rmp-fast-forward,
+.rmp-tv .rmp-control-bar .rmp-fast-rewind {
+  font-size: 4.84em;
+}
+
+.rmp-tv .rmp-control-bar .rmp-indicator {
+  font-size: 24px;
+  height: 40px;
+  line-height: 40px;
+  width: 160px;
+  top: -85px;
+  margin-left: -80px;
+}
+
+.rmp-tv .rmp-control-bar .rmp-fast-indicator {
+  font-size: 1.86em;
+  height: 40px;
+  line-height: 40px;
+  left: 8px;
+  width: 40px;
+  display: inline-block;
+  position: absolute;
+}
+
+.rmp-tv .rmp-control-bar .rmp-time-indicator {
+  height: 40px;
+  line-height: 40px;
+  display: inline-block;
+  position: absolute;
+  left: 56px;
+  width: 96px;
+  text-align: center;
+}
+
+.rmp-medium.rmp-tv .rmp-control-bar .rmp-i,
+.rmp-small.rmp-tv .rmp-control-bar .rmp-i,
+.rmp-extrasmall.rmp-tv .rmp-control-bar .rmp-i,
+.rmp-doubleextrasmall.rmp-tv .rmp-control-bar .rmp-i {
+  font-size: 1.86em;
+}
+
+.rmp-tv .rmp-seek-bar:hover .rmp-handle,
+.rmp-tv .rmp-overlay-button,
+.rmp-extrasmall.rmp-tv .rmp-fast-rewind,
+.rmp-extrasmall.rmp-tv .rmp-fast-forward,
+.rmp-doubleextrasmall.rmp-tv .rmp-fast-rewind,
+.rmp-doubleextrasmall.rmp-tv .rmp-fast-forward {
+  display: none !important;
+}
+
+.rmp-tv .rmp-loading-spin {
+  height: 120px !important;
+  width: 120px !important;
+  margin-top: -60px !important;
+  margin-left: -60px !important;
+}
+
+.rmp-tv .rmp-loading-spin-circle {
+  width: 120px !important;
+  height: 120px !important;
+  border-width: 6px !important;
+}
+
+.rmp-tv .rmp-ad-info {
+  left: 3%;
+  height: 48px;
+  line-height: 48px;
+  padding-right: 8px;
+  top: 14px;
+  font-size: 32px;
+}
+
+.rmp-tv.rmp-quick-rewind-and-forward-ui .rmp-quick-rewind-or-forward {
+  left: 50%;
+  margin-left: calc(-24px - 96px);
+  width: 70px;
+  height: 70px;
+}
+
+.rmp-medium.rmp-tv.rmp-quick-rewind-and-forward-ui .rmp-quick-rewind-or-forward,
+.rmp-small.rmp-tv.rmp-quick-rewind-and-forward-ui .rmp-quick-rewind-or-forward,
+.rmp-extrasmall.rmp-tv.rmp-quick-rewind-and-forward-ui
+  .rmp-quick-rewind-or-forward {
+  left: 50%;
+  margin-left: calc(-24px - 48px);
+}
+
+.rmp-tv.rmp-quick-rewind-and-forward-ui .rmp-quick-rewind-and-forward {
+  left: 50%;
+  margin-left: calc(-24px + 96px);
+  width: 70px;
+  height: 70px;
+}
+
+.rmp-medium.rmp-tv.rmp-quick-rewind-and-forward-ui
+  .rmp-quick-rewind-and-forward,
+.rmp-small.rmp-tv.rmp-quick-rewind-and-forward-ui .rmp-quick-rewind-and-forward,
+.rmp-extrasmall.rmp-tv.rmp-quick-rewind-and-forward-ui
+  .rmp-quick-rewind-and-forward {
+  left: 50%;
+  margin-left: calc(-24px + 48px);
+}
+
+.rmp-tv .rmp-fast-rewind {
+  position: absolute;
+  left: 50%;
+  width: 70px;
+  height: 70px;
+  margin-left: calc(-24px - 192px);
+}
+
+.rmp-medium.rmp-tv .rmp-fast-rewind,
+.rmp-small.rmp-tv .rmp-fast-rewind,
+.rmp-extrasmall.rmp-tv .rmp-fast-rewind {
+  left: 50%;
+  margin-left: calc(-24px - 96px);
+}
+
+.rmp-tv .rmp-fast-forward {
+  position: absolute;
+  left: 50%;
+  width: 70px;
+  height: 70px;
+  margin-left: calc(-24px + 192px);
+}
+
+.rmp-medium.rmp-tv .rmp-fast-forward,
+.rmp-small.rmp-tv .rmp-fast-forward,
+.rmp-extrasmall.rmp-tv .rmp-fast-forward {
+  left: 50%;
+  margin-left: calc(-24px + 96px);
+}
+
+.rmp-tv .rmp-cc-area {
+  bottom: 120px !important;
+}
+
+.rmp-tv .rmp-overlay-level {
+  height: 60px;
+  line-height: 56px;
+  width: 344px;
+  font-size: 28px;
+  margin-left: -172px;
+  margin-bottom: 16px;
+}
+
+.rmp-tv .rmp-overlay-title {
+  margin-top: 16px;
+  margin-bottom: 32px;
+}
+
+.rmp-tv .rmp-overlay-title-text {
+  font-size: 28px;
+}
+
+.rmp-tv .rmp-module-overlay .rmp-i {
+  font-size: 3.72em;
+}
+
+.rmp-tv .rmp-module-overlay-close {
+  right: 104px !important;
+}
+
+.rmp-tv .rmp-module-overlay-icons.rmp-module-overlay-play-pause,
+.rmp-tv .rmp-module-fcc-settings {
+  display: none !important;
+}

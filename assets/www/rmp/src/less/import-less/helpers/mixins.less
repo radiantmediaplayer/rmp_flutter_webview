@@ -1,0 +1,125 @@
+.border-radius(@radius: 4px) {
+  border-radius: @radius;
+  background-clip: padding-box;
+}
+
+.border-radius-right-only(@radius: 4px) {
+  border-radius: 0 @radius @radius 0;
+  background-clip: padding-box;
+}
+
+.border-radius-left-only(@radius: 4px) {
+  border-radius: @radius 0 0 @radius;
+  background-clip: padding-box;
+}
+
+.border-radius-top-only(@radius: 4px) {
+  border-radius: @radius @radius 0 0;
+  background-clip: padding-box;
+}
+
+.border-radius-bottom-only(@radius: 4px) {
+  border-radius: 0 0 @radius @radius;
+  background-clip: padding-box;
+}
+
+.border-radius-top-right-only(@radius: 4px) {
+  border-radius: 0 @radius 0 0;
+  background-clip: padding-box;
+}
+
+.border-radius-bottom-right-only(@radius: 4px) {
+  border-radius: 0 0 @radius;
+  background-clip: padding-box;
+}
+
+.font-rmp() {
+  font-family: "Roboto", "Arial", "Helvetica", sans-serif !important;
+}
+
+.text-ellipsis() {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text-shadow(@string: 0 2px 1px @shadow-6) {
+  text-shadow: @string;
+}
+
+.unselectable() {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.transform-rotate(@angle: -90deg) {
+  transform: rotate(@angle);
+}
+
+.transform-scale(@scale: 1) {
+  transform: scale(@scale);
+}
+
+.transform-translateY(@pcY: -50%) {
+  transform: translateY(@pcY);
+}
+
+.transform-translateX(@pcX: -50%) {
+  transform: translateX(@pcX);
+}
+
+.transform-translate(@pcX: -50%; @pcY: -50%) {
+  transform: translate(@pcX, @pcY);
+}
+
+.transform(@string: none) {
+  transform: @string;
+}
+
+.animation(@string: rmpSpin 2s infinite linear) {
+  -webkit-animation: @string;
+  animation: @string;
+}
+
+.animation-delay(@string: 1s) {
+  -webkit-animation-delay: @string;
+  animation-delay: @string;
+}
+
+.transition(@property: background; @duration: 0.4s; @timing: ease-in) {
+  transition-property: @property;
+  transition-duration: @duration; 
+  transition-timing-function: @timing;
+}
+
+.filter-blur(@size: 3px) {
+  -webkit-filter: blur(@size);
+  filter: blur(@size);
+}
+
+.filter-drop-shadow(@string: 0 2px 1px @shadow-6) {
+  -webkit-filter: drop-shadow(@string);
+  filter: drop-shadow(@string);
+}
+
+.line-clamp-ellipsis(@lines: 2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: @lines;
+  line-clamp: @lines;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+}
+
+.grab() {
+  cursor: grab;
+}
+
+.appearance {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}

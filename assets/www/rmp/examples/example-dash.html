@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <title>Radiant Media Player - DASH Example</title>
+</head>
+
+<body>
+  <!-- Radiant Media Player core library - optimized for DASH streaming -->
+  <script src="../dist/rmp-shaka.min.js"></script>
+  <!-- Player container -->
+  <div id="rmp"></div>
+  <script>
+    // Player settings
+    const src = {
+      dash: 'https://your-dash-url.mpd',
+      // this exists as a fallback where DASH is not supported (iOS, older devices)
+      mp4: [
+        'https://your-mp4-url.mp4'
+      ]
+    };
+    const settings = {
+      // Enter your license key
+      licenseKey: 'your-license-key',
+      src: src,
+      skin: 's1',
+      width: 640,
+      height: 360,
+      pathToRmpFiles: '../',
+      contentMetadata: {
+        poster: [
+          'https://your-poster-url.jpg'
+        ]
+      }
+    };
+    const rmp = new RadiantMP('rmp');
+    rmp.init(settings);
+  </script>
+</body>
+
+</html>

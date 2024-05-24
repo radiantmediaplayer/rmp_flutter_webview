@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!-- Our HTML5 document must start with a valid DOCTYPE -->
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <!-- We add a viewport meta tag for best rendering on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>RMP in a Flutter WebView (local assets) - HLS</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1>RMP in a Flutter WebView</h1>
+        <h2 class="mb-3">Local Assets - HLS</h2>
+        <div id="rmp"></div>
+      </div>
+    </div>
+  </div>
+  <script src="rmp/hls/hls.min.js"></script>
+  <script src="rmp/rmp-vast/rmp-vast.min.js"></script>
+  <script src="rmp/dist/rmp.min.js"></script>
+  <script>
+    const src = {
+      hls: 'https://www.radiantmediaplayer.com/media/v1/hevc/hls/playlist.m3u8'
+    };
+    // Then we set our player settings
+    const settings = {
+      licenseKey: 'eXZmZ29wcmxycEAxNjI2MjYx',
+      src: src,
+      width: 640,
+      height: 360,
+      skin: 's1',
+      contentMetadata: {
+        poster: [
+          'img/poster.jpg'
+        ]
+      }
+    };
+    // Reference to our container div 
+    const elementID = 'rmp';
+    // Create an object based on RadiantMP constructor
+    const rmp = new RadiantMP(elementID);
+    // Initialization ... and done!
+    rmp.init(settings);
+  </script>
+</body>
+
+</html>
