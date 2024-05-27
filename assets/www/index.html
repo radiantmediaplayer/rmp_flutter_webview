@@ -7,6 +7,7 @@
   <!-- We add a viewport meta tag for best rendering on mobile devices -->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>RMP in a Flutter WebView (local assets) - HLS</title>
+  <!-- Add Bootstrap CSS framework for some decent Web UI -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 
@@ -16,23 +17,34 @@
       <div class="col">
         <h1>RMP in a Flutter WebView</h1>
         <h2 class="mb-3">Local Assets - HLS</h2>
-        <div id="rmp"></div>
+        <!-- player container -->
+        <div style="width:100%; height: auto">
+          <div id="rmp"></div>
+        </div>
       </div>
     </div>
   </div>
-  <script src="rmp/hls/hls.min.js"></script>
-  <script src="rmp/rmp-vast/rmp-vast.min.js"></script>
-  <script src="rmp/dist/rmp.min.js"></script>
+
+  <!-- For video advertisement - if needed
+  <script src="rmp/rmp-vast/rmp-vast.min.js"></script> -->
+  <!-- Radiant Media Player library for MPEG-DASH w/ Widevine DRM streaming
+  <script src="rmp/dist/rmp-shaka.min.js"></script> -->
+  <!-- Radiant Media Player library for HLS w/ FairPlay DRM streaming
+  <script src="rmp/dist/rmp.min.js"></script> -->
+
+  <!-- Radiant Media Player library for HLS streaming -->
+  <script src="rmp/dist/rmp-hlsjs.min.js"></script>
+
+  <!-- Our player settings -->
   <script>
+    // in this case we use an external HTTP HLS stream but you also load a local stream from the assets folder
     const src = {
       hls: 'https://www.radiantmediaplayer.com/media/v1/hevc/hls/playlist.m3u8'
     };
-    // Then we set our player settings
     const settings = {
-      licenseKey: 'eXZmZ29wcmxycEAxNjI2MjYx',
+      licenseKey: 'your-radiantmediaplayer-platform-edition-license-key',
       src: src,
-      width: 640,
-      height: 360,
+      autoHeightMode: true,
       skin: 's1',
       contentMetadata: {
         poster: [
@@ -40,11 +52,8 @@
         ]
       }
     };
-    // Reference to our container div 
     const elementID = 'rmp';
-    // Create an object based on RadiantMP constructor
     const rmp = new RadiantMP(elementID);
-    // Initialization ... and done!
     rmp.init(settings);
   </script>
 </body>

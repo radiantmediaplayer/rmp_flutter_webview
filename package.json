@@ -1,0 +1,26 @@
+{
+  "name": "rmp_flutter_webview",
+  "version": "1.0.0",
+  "author": "Radiant Media Player <support@radiantmediaplayer.com>",
+  "description": "A sample Flutter app to demonstrate how Radiant Media Player can be used with Flutter through webview_flutter plugin.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/radiantmediaplayer/rmp_flutter_webview.git"
+  },
+  "main": "lib/main.dart",
+  "keywords": [
+    "dart",
+    "flutter",
+    "ios",
+    "android",
+    "webview",
+    "html5",
+    "video",
+    "javascript"
+  ],
+  "bugs": {
+    "url": "https://github.com/radiantmediaplayer/rmp_flutter_webview/issues"
+  },
+  "homepage": "https://www.radiantmediaplayer.com/guides/working-with-flutter.html",
+  "license": "MIT"
+}
