@@ -12,7 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.6
-  webview_flutter: ^4.7.0
+  webview_flutter: ^4.8.0
 
 dev_dependencies:
   flutter_test:
@@ -22,7 +22,4 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/www/index.html
-    - assets/www/rmp/dist/
-    - assets/www/rmp/rmp-vast/
-    - assets/www/img/
+    - assets/www/
