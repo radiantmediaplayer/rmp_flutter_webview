@@ -28,6 +28,7 @@ Note: this is not a comprehensive guide on how to use Flutter, but a baseline ex
 
 ## Support notes
 
+- There is some specific WebView configuration for Android and iOS - see lines 35 and 46 of main.dart for comments
 - We support streaming to Flutter apps in MPEG-DASH, HLS (CMAF or MPEG-TS) or MP4/WebM progressive download
 - We support video advertisement with our rmp-vast open-source VAST manager (Google IMA SDK is NOT recommended)
 - We support Widevine DRM for Android apps and FairPlay DRM for iOS apps
@@ -35,7 +36,7 @@ Note: this is not a comprehensive guide on how to use Flutter, but a baseline ex
 
 ## Issues
 
-Issues for this demo app should be submitted in this GitHub page. We will do our best to review them. If you are a Radiant Media Player customer and need support with our player please [open a ticket here](https://www.radiantmediaplayer.com/technical-support.html).
+Issues should be submitted in this GitHub page. We will do our best to review them. If you are a Radiant Media Player customer and need support with our player please [open a ticket here](https://www.radiantmediaplayer.com/technical-support.html).
 
 ## License for rmp_flutter_webview
 
