@@ -17,7 +17,7 @@ class Menu extends StatelessWidget {
       onSelected: (value) async {
         switch (value) {
           case _MenuOptions.navigationDelegate:
-            await controller.loadRequest(Uri.parse('https://www.rmp-streaming.com/test/flutter/hls.html'));
+            await controller.loadRequest(Uri.parse('https://www.radiantmediaplayer.com/flutter/hls.html'));
           case _MenuOptions.loadFlutterAsset: // Add from here
             if (!context.mounted) return;
             await _onLoadFlutterAssetExample(controller, context);

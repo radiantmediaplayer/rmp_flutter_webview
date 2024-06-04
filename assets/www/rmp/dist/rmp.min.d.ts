@@ -63,6 +63,10 @@ declare class RadiantMP {
      */
     private _windowOffline;
     /**
+     * @typedef {object} FlipVideo
+     * @property {number} [x]
+     * @property {number} [y]
+     * @property {number} [z]
      * @typedef {object} CustomTrackNames
      * @property {string} [captions]
      * @property {string} [quality]
@@ -225,6 +229,8 @@ declare class RadiantMP {
      * @property {number} [autoHeightModeRatio]
      * @property {string} [backgroundColor]
      * @property {string} [skin]
+     * @property {string} [iconsSet]
+     * @property {number} [iconsSize]
      * @property {string} [customIconsLoc]
      * @property {boolean} [fullWindowSkin]
      * @property {string} [skinBackgroundColor]
@@ -234,12 +240,15 @@ declare class RadiantMP {
      * @property {boolean} [hideCentralPlayButton]
      * @property {boolean} [hideCentralBuffering]
      * @property {boolean} [hideSeekBar]
-     * @property {boolean} [hideVolume]
      * @property {boolean} [hideFullscreen]
+     * @property {boolean} [hideVolume]
      * @property {boolean} [hideExternalPlayerLabels]
+     * @property {boolean} [disableKeyboardControl]
+     * @property {boolean} [longFormContent]
      * @property {boolean} [automaticFullscreenOnLandscape]
      * @property {boolean} [fullscreenFullWindowMode]
      * @property {boolean} [detectViewerLanguage]
+     * @property {string} [fixedLabelsLanguage]
      * @property {boolean} [doubleClickForFullscreen]
      * @property {boolean} [pauseContentWhenViewingAreaIsClicked]
      * @property {boolean} [autoplay]
@@ -277,11 +286,18 @@ declare class RadiantMP {
      * @property {string} [sharingUrl]
      * @property {string} [sharingCode]
      * @property {string[]} [sharingNetworks]
+     * @property {number} [frameRate]
      * @property {boolean} [strictGdprCompliance]
+     * @property {boolean} [displayRemainingTimeInPlaceOfDuration]
+     * @property {boolean} [errorOnlyShowCustomText]
+     * @property {CustomTrackNames} [customTrackNames]
+     * @property {FlipVideo} [flipVideo]
      * @property {boolean} [audioOnly]
      * @property {boolean} [audioOnlyUseVideoLayout]
      * @property {boolean} [audioOnlyIcecast]
+     * @property {boolean} [audioOnlyID3UI]
      * @property {number} [debugLevel]
+     * @property {number} [debugForceRawConsoleLogs]
      * @property {string} [pathToRmpFiles]
      * @property {number} [offsetStartPosition]
      * @property {number} [quickRewind]
@@ -290,25 +306,33 @@ declare class RadiantMP {
      * @property {number} [ajaxTimeout]
      * @property {boolean} [allowLocalStorage]
      * @property {boolean} [pip]
+     * @property {boolean} [floating]
+     * @property {number} [floatingThreshold]
      * @property {RetryParameters} [retryParameters]
-     * @property {number} [hlsJSMaxBufferAhead]
-     * @property {number} [hlsJSMaxBufferBehind]
-     * @property {number} [shakaMaxBufferAhead]
-     * @property {number} [shakaMaxBufferBehind]
      * @property {boolean} [dashFirst]
-     * @property {boolean} [shakaStreamingIgnoreTextStreamFailures]
+     * @property {boolean} [shakaStartAtSegmentBoundary]
+     * @property {number} [shakaInaccurateManifestTolerance]
      * @property {boolean} [shakaIgnoreMinBufferTime]
-     * @property {string} [shakaPreferredAudioLanguage]
-     * @property {string} [shakaPreferredTextLanguage]
      * @property {ShakaRestrictions} [shakaRestrictions]
      * @property {ShakaDrm} [shakaDrm]
      * @property {object} [shakaRequestConfiguration]
      * @property {object} [shakaCustomConfig]
+     * @property {object} [shakaFullCustomConfig]
      * @property {function|null} [shakaCustomRequestFilter]
      * @property {function|null} [shakaCustomResponseFilter]
      * @property {object} [shakaKeySystemsByURI]
      * @property {boolean} [shakaOffline]
      * @property {number} [shakaOfflinePreferredTrackQuality]
+     * @property {number} [shakaMaxBufferAhead]
+     * @property {number} [shakaMaxBufferBehind]
+     * @property {boolean} [shakaClearBufferSwitch]
+     * @property {boolean} [shakaLiveSync]
+     * @property {boolean} [shakaAWSMediaTailor]
+     * @property {object} [shakaAWSMediaTailorAdsParam]
+     * @property {boolean} [disableVideo]
+     * @property {boolean} [disableAudio]
+     * @property {boolean} [disableText]
+     * @property {boolean} [preferSpatialAudio]
      * @property {number} [hlsJSStartLevel]
      * @property {boolean} [hlsJSFetchXhrWithCredentials]
      * @property {string} [hlsJSCaptionsTextTrack1Label]
@@ -320,41 +344,39 @@ declare class RadiantMP {
      * @property {boolean} [hlsJSAppleAppStoreCompliance]
      * @property {boolean} [hlsJSStopDownloadWhilePaused]
      * @property {object} [hlsJSCustomConfig]
+     * @property {object} [hlsJSFullCustomConfig]
      * @property {boolean} [forceNativeHlsOverHlsJS]
-     * @property {boolean} [forceHlsJSOnIpadOS]
-     * @property {boolean} [forceHlsJSOnMacOSSafari]
-     * @property {boolean} [forceHlsJSOnIos]
      * @property {boolean} [forceHlsJSOnAppleDevices]
-     * @property {boolean} [forceLegacyDependencies]
-     * @property {string} [hlsEngine]
      * @property {boolean} [hlsJSProgressive]
+     * @property {number} [hlsJSMaxBufferAhead]
+     * @property {number} [hlsJSMaxBufferBehind]
      * @property {string} [manualSwitchingMode]
-     * @property {boolean} [disableVideo]
-     * @property {boolean} [disableAudio]
-     * @property {boolean} [disableText]
-     * @property {boolean} [preferSpatialAudio]
-     * @property {string} [preferredVideoHdr]
-     * @property {AudioPreference} [audioPreference]
-     * @property {SubtitlePreference} [subtitlePreference]
      * @property {string[]} [preferredVideoCodecs]
      * @property {string[]} [preferredAudioCodecs]
      * @property {boolean} [consumeLessEnergy]
+     * @property {string} [hlsEngine]
+     * @property {boolean} [capLevelToPlayerSize]
+     * @property {boolean} [ignoreDevicePixelRatio]
+     * @property {boolean} [autoLowLatencyMode]
+     * @property {string[]} [preferredKeySystems]
+     * @property {boolean} [forceLegacyDependencies]
+     * @property {AudioPreference} [audioPreference]
+     * @property {SubtitlePreference} [subtitlePreference]
+     * @property {string} [preferredVideoHdr]
      * @property {boolean} [enableCMCD]
      * @property {boolean} [useHeadersForCMCD]
      * @property {string} [cmcdSessionId]
      * @property {string} [cmcdContentId]
      * @property {string[]} [cmcdIncludeKeys]
      * @property {boolean} [enableCMSD]
-     * @property {boolean} [capLevelToPlayerSize]
-     * @property {boolean} [ignoreDevicePixelRatio]
-     * @property {boolean} [autoLowLatencyMode]
-     * @property {string[]} [preferredKeySystems]
      * @property {FpsDrm} [fpsDrm]
      * @property {Src} src
      * @property {Src} [backupSrc]
      * @property {number} [initialBitrate]
+     * @property {boolean} [pdCheckCodecsDone]
      * @property {Labels} [labels]
      * @property {number} [dvrUIThreshold]
+     * @property {boolean} [liveOnResumeKeepSyncWithEdge]
      * @property {string[][]} [ccFiles]
      * @property {string} [crossorigin]
      * @property {string} [ccFontColor]
@@ -383,14 +405,16 @@ declare class RadiantMP {
      * @property {boolean} [googleCastCordova]
      * @property {boolean} [googleCastCordovaDebug]
      * @property {string} [googleCastReceiverAppId]
+     * @property {boolean} [googleCastAndroidReceiverCompatible]
      * @property {string} [googleCastVmapAdsRequest]
      * @property {string} [googleCastAdTagUrl]
      * @property {object} [googleCastHeaders]
+     * @property {boolean} [googleCastDrmToday]
+     * @property {boolean} [googleCastEnableUITextDisplayer]
      * @property {object} [googleCastData]
-     * @property {object} [googleCastDrmToday]
      * @property {boolean} [googleCastDisableAds]
      * @property {boolean} [airplay]
-     * @property {boolean} [pdCheckCodecsDone]
+     * @property {boolean} [airplayWithMms]
      * @property {boolean} [ads]
      * @property {string} [adTagUrl]
      * @property {boolean} [adShowMarkers]
@@ -417,31 +441,39 @@ declare class RadiantMP {
      * @property {number} [adLiveStreamPrefetchSeconds]
      * @property {string} [adContinuousPlayback]
      * @property {boolean} [adForceNativeFullscreenOnIosForAds]
+     * @property {number} [adNonLinearAdSlotWidth]
+     * @property {number} [adNonLinearAdSlotHeight]
+     * @property {string} [adCompanionBackfillMode]
+     * @property {string} [adPpid]
+     * @property {string} [adSessionId]
+     * @property {object} [omidAccessModeRules]
      * @property {boolean} [adImaDai]
      * @property {string} [adImaDaiVodContentSourceId]
      * @property {string} [adImaDaiVodVideoId]
+     * @property {boolean} [adImaDaiVodPod]
+     * @property {function|null} [adImaDaiVodPodRequestStreamURLCallback]
      * @property {string} [adImaDaiLiveAssetKey]
+     * @property {string} [adImaDaiPodNetworkCode]
+     * @property {string} [adImaDaiCustomAssetKey]
      * @property {string} [adImaDaiApiKey]
      * @property {string} [adImaDaiBackupStream]
      * @property {object} [adImaDaiAdTagParameters]
      * @property {string} [adImaDaiStreamActivityMonitorId]
      * @property {string} [adImaDaiAuthToken]
-     * @property {string} [adImaDaiCustomAssetKey]
-     * @property {string} [adImaDaiPodNetworkCode]
-     * @property {boolean} [adImaDaiVodPod]
-     * @property {function|null} [adImaDaiVodPodRequestStreamURLCallback]
      * @property {boolean} [adOutStream]
      * @property {boolean} [adOutStreamMutedAutoplay]
      * @property {string[]} [omidAllowedVendors]
+     * @property {boolean} [adOmidSupport]
      * @property {boolean} [adAjaxWithCredentials]
      * @property {boolean} [adRmpVastEnableVpaid]
+     * @property {boolean} [adSupportHlsCreatives]
+     * @property {boolean} [adRmpVastEnableSimid]
      * @property {number} [adLoadMediaTimeout]
      * @property {number} [adLoadVastTimeout]
      * @property {number} [adMaxNumRedirects]
      * @property {boolean} [adCountDown]
      * @property {string} [adParser]
      * @property {string} [adPageUrl]
-     * @property {object} [omidAccessModeRules]
      * @property {string} [relatedLoc]
      * @property {object[]} [relatedData]
      * @property {number} [relatedUpNextOffset]
@@ -463,15 +495,14 @@ declare class RadiantMP {
      * @property {number} [video360InitialLon]
      * @property {Src} [video360FallbackSrc]
      * @property {boolean} [loopModule]
-     * @property {boolean} [theaterModeModule]
-     * @property {string} [fixedLabelsLanguage]
      * @property {string} [infoModule]
+     * @property {boolean} [theaterModeModule]
      * @property {CustomModule} [customModule]
      * @property {object} [streamrootConfig]
      * @property {object} [muxDataSettings]
      * @property {boolean} [muxDataUseListData]
+     * @property {object} [bitmovinAnalyticsConfig]
      * @property {string} [customAllowDenyListUrl]
-     * @property {CustomTrackNames} [customTrackNames]
      * @param {RadiantMediaPlayerSettings} settings
      * @return {void}
      */
@@ -485,6 +516,8 @@ declare class RadiantMP {
         autoHeightModeRatio?: number;
         backgroundColor?: string;
         skin?: string;
+        iconsSet?: string;
+        iconsSize?: number;
         customIconsLoc?: string;
         fullWindowSkin?: boolean;
         skinBackgroundColor?: string;
@@ -494,12 +527,15 @@ declare class RadiantMP {
         hideCentralPlayButton?: boolean;
         hideCentralBuffering?: boolean;
         hideSeekBar?: boolean;
-        hideVolume?: boolean;
         hideFullscreen?: boolean;
+        hideVolume?: boolean;
         hideExternalPlayerLabels?: boolean;
+        disableKeyboardControl?: boolean;
+        longFormContent?: boolean;
         automaticFullscreenOnLandscape?: boolean;
         fullscreenFullWindowMode?: boolean;
         detectViewerLanguage?: boolean;
+        fixedLabelsLanguage?: string;
         doubleClickForFullscreen?: boolean;
         pauseContentWhenViewingAreaIsClicked?: boolean;
         autoplay?: boolean;
@@ -555,11 +591,26 @@ declare class RadiantMP {
         sharingUrl?: string;
         sharingCode?: string;
         sharingNetworks?: string[];
+        frameRate?: number;
         strictGdprCompliance?: boolean;
+        displayRemainingTimeInPlaceOfDuration?: boolean;
+        errorOnlyShowCustomText?: boolean;
+        customTrackNames?: {
+            captions?: string;
+            quality?: string;
+            audio?: string;
+        };
+        flipVideo?: {
+            x?: number;
+            y?: number;
+            z?: number;
+        };
         audioOnly?: boolean;
         audioOnlyUseVideoLayout?: boolean;
         audioOnlyIcecast?: boolean;
+        audioOnlyID3UI?: boolean;
         debugLevel?: number;
+        debugForceRawConsoleLogs?: number;
         pathToRmpFiles?: string;
         offsetStartPosition?: number;
         quickRewind?: number;
@@ -568,6 +619,8 @@ declare class RadiantMP {
         ajaxTimeout?: number;
         allowLocalStorage?: boolean;
         pip?: boolean;
+        floating?: boolean;
+        floatingThreshold?: number;
         retryParameters?: {
             manifest?: {
                 timeout?: number;
@@ -594,15 +647,10 @@ declare class RadiantMP {
                 delay?: number;
             };
         };
-        hlsJSMaxBufferAhead?: number;
-        hlsJSMaxBufferBehind?: number;
-        shakaMaxBufferAhead?: number;
-        shakaMaxBufferBehind?: number;
         dashFirst?: boolean;
-        shakaStreamingIgnoreTextStreamFailures?: boolean;
+        shakaStartAtSegmentBoundary?: boolean;
+        shakaInaccurateManifestTolerance?: number;
         shakaIgnoreMinBufferTime?: boolean;
-        shakaPreferredAudioLanguage?: string;
-        shakaPreferredTextLanguage?: string;
         shakaRestrictions?: {
             minWidth?: number;
             maxWidth?: number;
@@ -622,11 +670,22 @@ declare class RadiantMP {
         };
         shakaRequestConfiguration?: object;
         shakaCustomConfig?: object;
+        shakaFullCustomConfig?: object;
         shakaCustomRequestFilter?: Function | null;
         shakaCustomResponseFilter?: Function | null;
         shakaKeySystemsByURI?: object;
         shakaOffline?: boolean;
         shakaOfflinePreferredTrackQuality?: number;
+        shakaMaxBufferAhead?: number;
+        shakaMaxBufferBehind?: number;
+        shakaClearBufferSwitch?: boolean;
+        shakaLiveSync?: boolean;
+        shakaAWSMediaTailor?: boolean;
+        shakaAWSMediaTailorAdsParam?: object;
+        disableVideo?: boolean;
+        disableAudio?: boolean;
+        disableText?: boolean;
+        preferSpatialAudio?: boolean;
         hlsJSStartLevel?: number;
         hlsJSFetchXhrWithCredentials?: boolean;
         hlsJSCaptionsTextTrack1Label?: string;
@@ -638,39 +697,35 @@ declare class RadiantMP {
         hlsJSAppleAppStoreCompliance?: boolean;
         hlsJSStopDownloadWhilePaused?: boolean;
         hlsJSCustomConfig?: object;
+        hlsJSFullCustomConfig?: object;
         forceNativeHlsOverHlsJS?: boolean;
-        forceHlsJSOnIpadOS?: boolean;
-        forceHlsJSOnMacOSSafari?: boolean;
-        forceHlsJSOnIos?: boolean;
         forceHlsJSOnAppleDevices?: boolean;
-        forceLegacyDependencies?: boolean;
-        hlsEngine?: string;
         hlsJSProgressive?: boolean;
+        hlsJSMaxBufferAhead?: number;
+        hlsJSMaxBufferBehind?: number;
         manualSwitchingMode?: string;
-        disableVideo?: boolean;
-        disableAudio?: boolean;
-        disableText?: boolean;
-        preferSpatialAudio?: boolean;
-        preferredVideoHdr?: string;
+        preferredVideoCodecs?: string[];
+        preferredAudioCodecs?: string[];
+        consumeLessEnergy?: boolean;
+        hlsEngine?: string;
+        capLevelToPlayerSize?: boolean;
+        ignoreDevicePixelRatio?: boolean;
+        autoLowLatencyMode?: boolean;
+        preferredKeySystems?: string[];
+        forceLegacyDependencies?: boolean;
         audioPreference?: {
             lang: string;
         };
         subtitlePreference?: {
             lang: string;
         };
-        preferredVideoCodecs?: string[];
-        preferredAudioCodecs?: string[];
-        consumeLessEnergy?: boolean;
+        preferredVideoHdr?: string;
         enableCMCD?: boolean;
         useHeadersForCMCD?: boolean;
         cmcdSessionId?: string;
         cmcdContentId?: string;
         cmcdIncludeKeys?: string[];
         enableCMSD?: boolean;
-        capLevelToPlayerSize?: boolean;
-        ignoreDevicePixelRatio?: boolean;
-        autoLowLatencyMode?: boolean;
-        preferredKeySystems?: string[];
         fpsDrm?: {
             certificatePath: string;
             processSpcPath: string;
@@ -703,6 +758,7 @@ declare class RadiantMP {
             ogg?: string;
         };
         initialBitrate?: number;
+        pdCheckCodecsDone?: boolean;
         labels?: {
             bitrates?: {
                 auto?: string;
@@ -775,6 +831,7 @@ declare class RadiantMP {
             };
         };
         dvrUIThreshold?: number;
+        liveOnResumeKeepSyncWithEdge?: boolean;
         ccFiles?: string[][];
         crossorigin?: string;
         ccFontColor?: string;
@@ -806,14 +863,16 @@ declare class RadiantMP {
         googleCastCordova?: boolean;
         googleCastCordovaDebug?: boolean;
         googleCastReceiverAppId?: string;
+        googleCastAndroidReceiverCompatible?: boolean;
         googleCastVmapAdsRequest?: string;
         googleCastAdTagUrl?: string;
         googleCastHeaders?: object;
+        googleCastDrmToday?: boolean;
+        googleCastEnableUITextDisplayer?: boolean;
         googleCastData?: object;
-        googleCastDrmToday?: object;
         googleCastDisableAds?: boolean;
         airplay?: boolean;
-        pdCheckCodecsDone?: boolean;
+        airplayWithMms?: boolean;
         ads?: boolean;
         adTagUrl?: string;
         adShowMarkers?: boolean;
@@ -844,31 +903,39 @@ declare class RadiantMP {
         adLiveStreamPrefetchSeconds?: number;
         adContinuousPlayback?: string;
         adForceNativeFullscreenOnIosForAds?: boolean;
+        adNonLinearAdSlotWidth?: number;
+        adNonLinearAdSlotHeight?: number;
+        adCompanionBackfillMode?: string;
+        adPpid?: string;
+        adSessionId?: string;
+        omidAccessModeRules?: object;
         adImaDai?: boolean;
         adImaDaiVodContentSourceId?: string;
         adImaDaiVodVideoId?: string;
+        adImaDaiVodPod?: boolean;
+        adImaDaiVodPodRequestStreamURLCallback?: Function | null;
         adImaDaiLiveAssetKey?: string;
+        adImaDaiPodNetworkCode?: string;
+        adImaDaiCustomAssetKey?: string;
         adImaDaiApiKey?: string;
         adImaDaiBackupStream?: string;
         adImaDaiAdTagParameters?: object;
         adImaDaiStreamActivityMonitorId?: string;
         adImaDaiAuthToken?: string;
-        adImaDaiCustomAssetKey?: string;
-        adImaDaiPodNetworkCode?: string;
-        adImaDaiVodPod?: boolean;
-        adImaDaiVodPodRequestStreamURLCallback?: Function | null;
         adOutStream?: boolean;
         adOutStreamMutedAutoplay?: boolean;
         omidAllowedVendors?: string[];
+        adOmidSupport?: boolean;
         adAjaxWithCredentials?: boolean;
         adRmpVastEnableVpaid?: boolean;
+        adSupportHlsCreatives?: boolean;
+        adRmpVastEnableSimid?: boolean;
         adLoadMediaTimeout?: number;
         adLoadVastTimeout?: number;
         adMaxNumRedirects?: number;
         adCountDown?: boolean;
         adParser?: string;
         adPageUrl?: string;
-        omidAccessModeRules?: object;
         relatedLoc?: string;
         relatedData?: object[];
         relatedUpNextOffset?: number;
@@ -899,9 +966,8 @@ declare class RadiantMP {
             ogg?: string;
         };
         loopModule?: boolean;
-        theaterModeModule?: boolean;
-        fixedLabelsLanguage?: string;
         infoModule?: string;
+        theaterModeModule?: boolean;
         customModule?: {
             hint?: string;
             svg?: string;
@@ -911,12 +977,8 @@ declare class RadiantMP {
         streamrootConfig?: object;
         muxDataSettings?: object;
         muxDataUseListData?: boolean;
+        bitmovinAnalyticsConfig?: object;
         customAllowDenyListUrl?: string;
-        customTrackNames?: {
-            captions?: string;
-            quality?: string;
-            audio?: string;
-        };
     }): void;
     refTime: number;
     preload: string;
@@ -1541,7 +1603,8 @@ declare class Utils {
     constructor(rmp: any);
     _rmp: any;
     _initialAutoplayRequest: boolean;
-    set initialAutoplayRequest(value: any);
+    set initialAutoplayRequest(value: boolean);
+    get initialAutoplayRequest(): boolean;
     _filterFpsDrm(): void;
     updateQualityModuleIcon(quality: any): void;
     checkStreams(initFn: any, backupSrc: any, streamType: any): void;
@@ -1722,7 +1785,8 @@ declare class InitManagement {
     get hasTranscripts(): boolean;
     get validatedLanguage(): string;
     get scheduleHasMidRolls(): boolean;
-    set ccFilesNativeTextTracksLoadedCount(index: any);
+    set ccFilesNativeTextTracksLoadedCount(index: number);
+    get ccFilesNativeTextTracksLoadedCount(): number;
     get originalAdTagUrl(): string;
     get originalAdTagWaterfall(): any[];
     get imaDaiLive(): boolean;

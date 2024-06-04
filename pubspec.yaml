@@ -13,6 +13,8 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.6
   webview_flutter: ^4.8.0
+  webview_flutter_wkwebview: ^3.13.1
+  webview_flutter_android: ^3.16.4
 
 dev_dependencies:
   flutter_test:
@@ -22,4 +24,11 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/www/
+    - assets/www/css/bootstrap.min.css
+    - assets/www/img/poster.jpg
+    - assets/www/rmp/dist/rmp.min.js
+    - assets/www/rmp/dist/rmp.debug.js
+    - assets/www/rmp/dist/rmp-hlsjs.min.js
+    - assets/www/rmp/dist/rmp-shaka.min.js
+    - assets/www/rmp/rmp-vast/rmp-vast.min.js
+    - assets/www/index.html

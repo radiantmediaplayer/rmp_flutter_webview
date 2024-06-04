@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'package:webview_flutter_android/webview_flutter_android.dart';
+import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
 
 import 'src/menu.dart';
 import 'src/navigation_controls.dart';
@@ -27,10 +29,35 @@ class _WebViewAppState extends State<WebViewApp> {
   @override
   void initState() {
     super.initState();
-    controller = WebViewController()
+
+    late final PlatformWebViewControllerCreationParams params;
+
+    // There are specific settings for WebKitWebViewPlatform (iOS) and AndroidWebViewController (Android)
+    // First iOS, we need to enable allowsInlineMediaPlayback
+    if (WebViewPlatform.instance is WebKitWebViewPlatform) {
+      params = WebKitWebViewControllerCreationParams(
+        allowsInlineMediaPlayback: true,
+        mediaTypesRequiringUserAction: const <PlaybackMediaTypes>{},
+      );
+    } else {
+      params = const PlatformWebViewControllerCreationParams();
+    }
+
+    // Second Android, we need to disable setMediaPlaybackRequiresUserGesture for autoplay
+    // And grant permission for DRM playback
+    controller = WebViewController.fromPlatformCreationParams(params);
+    if (controller.platform is AndroidWebViewController) {
+      (controller.platform as AndroidWebViewController)
+        ..setMediaPlaybackRequiresUserGesture(false)
+        ..setOnPlatformPermissionRequest(
+            (PlatformWebViewPermissionRequest request) {
+          request.grant();
+        });
+    }
+    controller
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..loadRequest(
-        Uri.parse('https://www.rmp-streaming.com/test/flutter/hls.html'),
+        Uri.parse('https://www.radiantmediaplayer.com/flutter/hls.html'),
       );
   }
 
