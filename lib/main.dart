@@ -57,7 +57,7 @@ class _WebViewAppState extends State<WebViewApp> {
     controller
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..loadRequest(
-        Uri.parse('https://www.radiantmediaplayer.com/flutter/hls.html'),
+        Uri.parse('https://www.radiantmediaplayer.com/flutter/index.html'),
       );
   }
 

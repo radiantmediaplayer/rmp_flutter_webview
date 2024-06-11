@@ -8,7 +8,7 @@ If a are new to using WebView with Flutter, a good starting point is the [Adding
 
 We support using Radiant Media Player 9.15.9+ with Flutter 3.22+ to build Android 5.1+ and iOS 12+ apps.
 
-This app demonstrates how to use Radiant Media Player with Flutter with our cloud player through an externally hosted Web App (https://www.radiantmediaplayer.com/flutter/hls.html) and Radiant Media Player self-hosted version through a locally hosted Web App.
+This app demonstrates how to use Radiant Media Player with Flutter with our cloud player through an externally hosted Web App (`https://www.radiantmediaplayer.com/flutter/index.html`) and Radiant Media Player self-hosted version through a locally hosted Web App.
 
 Note: this is not a comprehensive guide on how to use Flutter, but a baseline example on how Radiant Media Player can be used with Flutter. Once you have the baseline working please adapt this project to fit your needs.
 
